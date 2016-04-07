@@ -1,17 +1,21 @@
 package debug;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import java.util.List;
 
 public class ContainerArray<E> {
-    private int initialCapacity = 10;
+    private int limit = 10;
     private int currentSize = 0;
-    private Object[] internalArray;
+    private E[] internalArray;
 
     public ContainerArray () {
         this(10);
     }
 
     public ContainerArray (int initialCapacity) {
-        internalArray = new Object[initialCapacity];
+        internalArray = (E[]) new Object[initialCapacity];
     }
 
     public void add (E element) {
@@ -23,11 +27,19 @@ public class ContainerArray<E> {
     }
 
     public void remove (E objectToRemove) {
-        currentSize--;
+    	List<E> myList =  new ArrayList<E> (Arrays.asList(this.internalArray));
+    	if(myList.remove(objectToRemove)) currentSize--;
+    	this.internalArray = (E[]) myList.toArray();
     }
 
     @SuppressWarnings("unchecked")
     public E get (int index) {
-        return (E)internalArray[index];
+        return internalArray[index];
+    }
+    
+    public static void main (String[] args) {
+       ContainerArray<String> myContainer = new ContainerArray<>();
+        myContainer.add("test");
+        myContainer.remove("test");
     }
 }

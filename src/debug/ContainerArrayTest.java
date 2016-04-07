@@ -41,7 +41,11 @@ public class ContainerArrayTest {
         String alligator = "Alligator";
         myContainer.add("Alligator");
         myContainer.add("Bear");
+        myContainer.add("Tiger");
         myContainer.remove("Bear");
         assertEquals("Remove should be same reference", alligator, myContainer.get(0));
+        assertEquals("Objects shoulld be the same", "Tiger", myContainer.get(1));
+        
     }
+
 }

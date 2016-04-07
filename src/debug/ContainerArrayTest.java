@@ -12,7 +12,15 @@ public class ContainerArrayTest {
     public void setUp () {
         myContainer = new ContainerArray<>();
     }
-
+    //Added test:
+    @Test
+    public void checkLimitNotOverReached(){
+        myContainer = new ContainerArray<>(1);
+        myContainer.add("Alligator");
+        myContainer.add("Bear");
+        myContainer.add("Camel");
+        assertEquals("Add size", 1, myContainer.size());
+    }
     @Test
     public void testSizeChangeWithAdd () {
         myContainer.add("Alligator");
@@ -43,5 +51,16 @@ public class ContainerArrayTest {
         myContainer.add("Bear");
         myContainer.remove("Bear");
         assertEquals("Remove should be same reference", alligator, myContainer.get(0));
+    }
+    
+    @Test
+    public void testRemoveAllObject () {
+    	String alligator = "Alligator";
+    	myContainer.add("Bear");
+    	myContainer.add("Alligator");
+    	myContainer.add("Bear");
+    	myContainer.removeAll("Bear");
+    	 assertEquals("Remove should be same reference", alligator, myContainer.get(0));
+    	
     }
 }

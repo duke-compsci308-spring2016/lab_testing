@@ -1,5 +1,8 @@
 package debug;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ContainerArray<E> {
     private int initialCapacity = 10;
@@ -10,8 +13,8 @@ public class ContainerArray<E> {
         this(10);
     }
 
-    public ContainerArray (int initialCapacity) {
-        internalArray = new Object[initialCapacity];
+    public ContainerArray (int limit) {
+        internalArray = new Object[limit];
     }
 
     public void add (E element) {
@@ -23,7 +26,19 @@ public class ContainerArray<E> {
     }
 
     public void remove (E objectToRemove) {
-        currentSize--;
+        Object[] tempArray = new Object[internalArray.length-1];
+        int counter = 0;
+        
+        if(internalArray.length > 0){
+	        for(Object o: internalArray){
+	        	if(o.equals(objectToRemove)){
+	        		continue;
+	        	}
+	        	tempArray[counter] = 0;
+	        	counter++;
+	        }
+        }
+        internalArray = tempArray;
     }
 
     @SuppressWarnings("unchecked")

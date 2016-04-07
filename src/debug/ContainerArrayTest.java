@@ -7,6 +7,7 @@ import org.junit.Test;
 
 public class ContainerArrayTest {
     private ContainerArray<String> myContainer = null;
+    private static final int NUMBERGREATERTHANLIMIT = 11;
 
     @Before
     public void setUp () {
@@ -43,5 +44,19 @@ public class ContainerArrayTest {
         myContainer.add("Bear");
         myContainer.remove("Bear");
         assertEquals("Remove should be same reference", alligator, myContainer.get(0));
+    }
+    
+    @Test
+    public void zeroLowerBoundOnRemove(){
+        myContainer.remove("Null");
+        assertEquals("Container can not hold negative number of objects", 0, myContainer.size());
+    }
+    
+    @Test
+    public void testSizeLimit () {
+        for(int i=0; i<NUMBERGREATERTHANLIMIT; i++){
+            myContainer.add("Hi");  
+        }
+        assertEquals("Test Size Limit", myContainer.size(),10);
     }
 }

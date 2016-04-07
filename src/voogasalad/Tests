@@ -1,0 +1,6 @@
+Tests for VOOGASalad
+====================
+
+1. Test that user input to authoring environment text fields is transferred over to data files accurately.
+
+2. Test that whenever the user clicks on a unit it is set as the selected unit.

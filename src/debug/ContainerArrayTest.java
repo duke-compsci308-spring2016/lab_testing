@@ -43,5 +43,18 @@ public class ContainerArrayTest {
         myContainer.add("Bear");
         myContainer.remove("Bear");
         assertEquals("Remove should be same reference", alligator, myContainer.get(0));
+        myContainer.remove("Alligator");
+        assertEquals(null, myContainer.get(0));
     }
+    
+    @Test
+    public void testSizeLimit() {
+    	for (int i = 0; i < 11; i++) {
+    		myContainer.add("Yo");
+    	}
+    	assertEquals(10, myContainer.size());
+    }
+    
 }
+
+

@@ -2,7 +2,7 @@ package debug;
 
 
 public class ContainerArray<E> {
-    private int initialCapacity = 10;
+    private int limit = 10;
     private int currentSize = 0;
     private Object[] internalArray;
 
@@ -11,11 +11,12 @@ public class ContainerArray<E> {
     }
 
     public ContainerArray (int initialCapacity) {
-        internalArray = new Object[initialCapacity];
+        internalArray = new Object[limit];
     }
 
     public void add (E element) {
-        internalArray[currentSize++] = element;
+        if (currentSize == limit) return;
+    	internalArray[currentSize++] = element;
     }
 
     public int size () {
@@ -23,7 +24,18 @@ public class ContainerArray<E> {
     }
 
     public void remove (E objectToRemove) {
-        currentSize--;
+    	currentSize--;
+    	
+    	int i = 0;
+    	while (!internalArray[i].equals(objectToRemove)) {
+    		i++;
+    	}
+    	if (i < currentSize) {
+    		for (int k = i; k < currentSize; k++) {
+    			internalArray[k] = internalArray[k+1];
+    		}
+    	}
+    	internalArray[currentSize] = null;
     }
 
     @SuppressWarnings("unchecked")

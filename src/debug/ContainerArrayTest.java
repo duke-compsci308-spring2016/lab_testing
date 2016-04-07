@@ -44,4 +44,29 @@ public class ContainerArrayTest {
         myContainer.remove("Bear");
         assertEquals("Remove should be same reference", alligator, myContainer.get(0));
     }
+    
+    @Test
+    public void testRemove () {
+    	String bear = "Bear";
+    	myContainer.add(bear);
+    	myContainer.remove(bear);
+    	assertEquals(myContainer.get(0),null);
+    }
+    @Test
+    public void testMultipleObjectSameTypeRemoval() {
+    	String bear = "Bear";
+    	myContainer.add(bear);
+    	myContainer.add(bear);
+    	myContainer.remove(bear);
+    	assertEquals(myContainer.get(0),null);
+    }
+    @Test
+    public void testContainorSizeNonexistent() {
+    	String bear = "Bear";
+    	String alligator = "Alligator";
+    	myContainer.add(bear);
+    	myContainer.add(bear);
+    	myContainer.remove(alligator);
+    	assertEquals(myContainer.size(),2);
+    }
 }

@@ -10,7 +10,14 @@ public class ContainerArrayTest {
 
     @Before
     public void setUp () {
-        myContainer = new ContainerArray<>();
+        myContainer = new ContainerArray<String>();
+    }
+    
+    @Test
+    public void testSizeLimit() {
+    	for(int i = 0; i < 11; i++) {
+    		myContainer.add(i + "TapDancers");
+    	}
     }
 
     @Test
@@ -43,5 +50,14 @@ public class ContainerArrayTest {
         myContainer.add("Bear");
         myContainer.remove("Bear");
         assertEquals("Remove should be same reference", alligator, myContainer.get(0));
+    }
+    @Test
+    public void testObjectProperlyRemoved(){
+    	String alligator = "Alligator";
+        myContainer.add("Alligator");
+        myContainer.add("Bear");
+        myContainer.add("Deer");
+        myContainer.remove("Alligator");
+        assertEquals("Remove should be same reference","Bear", myContainer.get(0));
     }
 }

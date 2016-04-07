@@ -2,7 +2,6 @@ package voogasalad;
 
 import static org.junit.Assert.*;
 
-import java.util.ResourceBundle;
 import org.junit.Test;
 
 

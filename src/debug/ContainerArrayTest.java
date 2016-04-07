@@ -1,4 +1,4 @@
-package debug;
+package src.debug;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
@@ -43,5 +43,14 @@ public class ContainerArrayTest {
         myContainer.add("Bear");
         myContainer.remove("Bear");
         assertEquals("Remove should be same reference", alligator, myContainer.get(0));
+    }
+    
+    @Test
+    public void testObjectActuallyRemove() {
+        String bear = "Bear";
+        myContainer.add("Alligator");
+        myContainer.add("Bear");
+        myContainer.remove("Alligator");
+        assertEquals("Remove should be same reference", bear, myContainer.get(0));   	
     }
 }

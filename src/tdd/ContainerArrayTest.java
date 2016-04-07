@@ -12,52 +12,7 @@ public class ContainerArrayTest {
     public void setUp () {
         myContainer = new ContainerArray<>();
     }
-    
-    @Test
-    public void testGetNegative()
-    {
-        assertEquals("Get negative", null, myContainer.get(-10));
-    }
-    
-    @Test
-    public void testRemoveMany()
-    {
-    	for(int i = 0; i < 100; i++)
-    		myContainer.remove(Integer.toString(i));
-    	
-        assertEquals("Removes many", 0, myContainer.size());
-    }
-    
-    @Test
-    public void testAddMany()
-    {
-    	for(int i = 0; i < 100; i++)
-    		myContainer.add(Integer.toString(i));
-    	
-        assertEquals("Add many", 100, myContainer.size());
-    }
-    
-    @Test
-    public void testGetUnset()
-    {
-    	myContainer.add("Alligator");
-        myContainer.add("Bear");
-        myContainer.add("Camel");
-        
-        assertEquals("Get unset item", null, myContainer.get(10));
-    }
-    
-    @Test
-    public void testRemove()
-    {
-    	myContainer.add("Alligator");
-        myContainer.add("Bear");
-        myContainer.add("Camel");
-        myContainer.remove("Alligator");
-        
-        assertEquals("Remove object", "Bear", myContainer.get(0));
-    }
-    
+
     @Test
     public void testSizeChangeWithAdd () {
         myContainer.add("Alligator");

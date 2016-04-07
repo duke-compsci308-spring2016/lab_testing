@@ -2,7 +2,7 @@ package debug;
 
 
 public class ContainerArray<E> {
-    private int initialCapacity = 10;
+    private int limit;
     private int currentSize = 0;
     private Object[] internalArray;
 
@@ -10,12 +10,25 @@ public class ContainerArray<E> {
         this(10);
     }
 
-    public ContainerArray (int initialCapacity) {
-        internalArray = new Object[initialCapacity];
+    public ContainerArray (int limit) {
+    	this.limit = limit;
+        internalArray = new Object[limit];
     }
 
     public void add (E element) {
-        internalArray[currentSize++] = element;
+    	int currentIndex = -1;
+    	for(int i = 0; i < limit; i++) {
+    		if(internalArray[i] == null) {
+    			currentIndex = i;
+    			break;
+    		}
+    	}
+    	try {
+    		internalArray[currentIndex] = element;
+    		currentSize++;
+    	} catch(Exception e) {
+    		throw new ArrayIndexOutOfBoundsException();
+    	}
     }
 
     public int size () {
@@ -23,7 +36,12 @@ public class ContainerArray<E> {
     }
 
     public void remove (E objectToRemove) {
-        currentSize--;
+    	for(int i = 0; i < currentSize; i++) {
+    		if(internalArray[i] == objectToRemove) {
+    			internalArray[i] = null;
+    			currentSize--;
+    		}
+    	}
     }
 
     @SuppressWarnings("unchecked")

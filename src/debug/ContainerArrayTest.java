@@ -7,10 +7,21 @@ import org.junit.Test;
 
 public class ContainerArrayTest {
     private ContainerArray<String> myContainer = null;
-
+    
     @Before
     public void setUp () {
         myContainer = new ContainerArray<>();
+	  	
+    }
+    
+    @Test 
+    public void testRemove() {
+          String alligator = "Alligator";
+    	  String bear = "Bear";
+          myContainer.add(alligator);
+          myContainer.add(bear);
+          myContainer.remove(alligator);
+          assertEquals("Remove should be different reference", bear, myContainer.get(0));
     }
 
     @Test

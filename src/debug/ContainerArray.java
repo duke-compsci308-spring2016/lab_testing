@@ -23,6 +23,14 @@ public class ContainerArray<E> {
     }
 
     public void remove (E objectToRemove) {
+    	for (int i = 0; i < internalArray.length; i++) {
+    		if (internalArray[i] == objectToRemove) {
+    			for (int j = i; j < internalArray.length - 1; j++) {
+    				internalArray[j] = internalArray[j+1];
+    			}
+    			break;
+    		}
+    	}
         currentSize--;
     }
 

@@ -1,5 +1,7 @@
-package debug;
+package src.debug;
 
+import java.util.Arrays;
+import java.util.List;
 
 public class ContainerArray<E> {
     private int initialCapacity = 10;
@@ -23,6 +25,12 @@ public class ContainerArray<E> {
     }
 
     public void remove (E objectToRemove) {
+    	List<Object> list = Arrays.asList(internalArray);
+    	System.out.println(list);
+    	list.remove(objectToRemove);
+    	System.out.println(list);
+    	internalArray = list.toArray(new Object[initialCapacity]);
+    	System.out.println(internalArray);
         currentSize--;
     }
 

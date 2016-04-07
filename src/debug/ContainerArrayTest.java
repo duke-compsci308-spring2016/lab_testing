@@ -44,4 +44,42 @@ public class ContainerArrayTest {
         myContainer.remove("Bear");
         assertEquals("Remove should be same reference", alligator, myContainer.get(0));
     }
+    
+    // New Tests
+    
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testOutOfBounds(){
+        myContainer.add("Alligator");
+        myContainer.get(11);
+    }
+    
+    @Test
+    public void testGetOnNull(){
+        myContainer.add("Alligator");
+        assertEquals(null,myContainer.get(5));
+    }
+    
+    @Test
+    public void testCorrectRemove () {
+        myContainer.add("Alligator");
+        myContainer.add("Bear");
+        myContainer.remove("Alligator");
+        assertEquals(null, myContainer.get(1));
+        
+    }
+    
+    @Test
+    public void testSizeLimit () {
+        myContainer.remove(" ");
+        assertEquals(0, myContainer.size());
+    }
+    
+    @Test
+    public void testIfRightObjectRemoved () {
+        myContainer.add("Aligator");
+        myContainer.add("Bear");
+        myContainer.remove("Aligator");
+        assertEquals("Bear", myContainer.get(0));
+    }
+    
 }

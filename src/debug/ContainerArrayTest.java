@@ -12,6 +12,15 @@ public class ContainerArrayTest {
     public void setUp () {
         myContainer = new ContainerArray<>();
     }
+    
+    @Test 
+    public void testAddPastLimit (){
+    	for(int i=0; i<10;i++) {
+    		myContainer.add("Eagle");
+    	}
+        myContainer.add("Hawk");
+        assertFalse(myContainer.contains("Hawk"));
+    }
 
     @Test
     public void testSizeChangeWithAdd () {
@@ -25,7 +34,7 @@ public class ContainerArrayTest {
     public void testObjectIsStored () {
         String alligator = "Alligator";
         myContainer.add(alligator);
-        assertEquals("Add should be same reference", alligator, myContainer.get(0));
+        assertTrue(myContainer.contains(alligator));
     }
 
     @Test
@@ -42,6 +51,7 @@ public class ContainerArrayTest {
         myContainer.add("Alligator");
         myContainer.add("Bear");
         myContainer.remove("Bear");
-        assertEquals("Remove should be same reference", alligator, myContainer.get(0));
+        assertFalse(myContainer.contains("Bear"));
     }
+        
 }

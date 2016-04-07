@@ -23,11 +23,19 @@ public class ContainerArray<E> {
     }
 
     public void remove (E objectToRemove) {
-        currentSize--;
+    	int occur =0;
+    	for(int i=0; i<currentSize; i++)
+    		if(internalArray[i]==objectToRemove)
+    			occur++;
+    	
+        currentSize-=occur;
     }
 
     @SuppressWarnings("unchecked")
     public E get (int index) {
+    	if(currentSize<=0)
+    		return null;
         return (E)internalArray[index];
     }
 }
+

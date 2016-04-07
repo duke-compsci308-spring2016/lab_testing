@@ -22,6 +22,34 @@ public class ContainerArrayTest {
     }
 
     @Test
+    public void testObjectAdded(){
+    	myContainer.add("Element");
+    	assertEquals("Element",myContainer.get(myContainer.size()-1));
+    }
+    
+    @Test
+    public void testObjectRemoved(){
+    	String obj = "Element";
+    	myContainer.add(obj);
+    	myContainer.add(obj);
+    	
+    	ContainerArray newArray = new ContainerArray();
+    	newArray.add(obj);
+    	myContainer.remove(obj);
+    	for (int i = 0; i < 2; i++){
+    		assertEquals(newArray.get(i), myContainer.get(i));
+    	}
+    }
+    
+    @Test
+    public void testSizeMaximum(){
+    	for (int i = 0; i < 12; i++){
+    		myContainer.add("Test");
+    	}
+    	assertEquals(10, myContainer.size());
+    }
+    
+    @Test
     public void testObjectIsStored () {
         String alligator = "Alligator";
         myContainer.add(alligator);

@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 
+
 public class ContainerArrayTest {
     private ContainerArray<String> myContainer = null;
 
@@ -43,5 +44,28 @@ public class ContainerArrayTest {
         myContainer.add("Bear");
         myContainer.remove("Bear");
         assertEquals("Remove should be same reference", alligator, myContainer.get(0));
+    }
+
+    @Test
+    public void testIfRemoveTwiceFails(){
+        myContainer.add("Alligator");
+        myContainer.add("Alligator");
+        myContainer.add("Bear");
+        myContainer.remove("Alligator");
+        assertEquals("Size should be 1", 1, myContainer.size());
+    }
+    @Test
+    public void testIfAllObjectsAreRemoved(){
+        myContainer.add("Alligator");
+        myContainer.add("Alligator");
+        myContainer.remove("Alligator");
+        assertEquals("Array should have no elements", 0, myContainer.size());
+    }
+    @Test
+    public void testIfObjectIsRemoved(){
+        myContainer.add("Alligator");
+        myContainer.add("Bear");
+        myContainer.remove("Alligator");
+        assertEquals("Remove element", "Bear", myContainer.get(0));
     }
 }

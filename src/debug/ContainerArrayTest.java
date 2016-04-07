@@ -44,4 +44,39 @@ public class ContainerArrayTest {
         myContainer.remove("Bear");
         assertEquals("Remove should be same reference", alligator, myContainer.get(0));
     }
+    
+    @Test
+    public void testCantRemoveFromEmpty ()
+    {
+    	myContainer.remove("Hello");
+        assertEquals("Remove size", 0, myContainer.size());
+    }
+    
+    @Test
+    public void testCantAddMoreThanLimit()
+    {
+    	for ( int i = 0; i < 12; i++ )
+    		myContainer.add("HELLO");
+    	
+        assertEquals("Size should be Limit", 10, myContainer.size());
+    }
+    
+    @Test
+    public void testThatRemoveWorks(){
+    	myContainer.add("Camel");
+    	myContainer.add("Giraffe");
+    	myContainer.remove("Camel");
+    	System.out.println("Test1");
+    	assertEquals(myContainer.get(0), "Giraffe");
+    	assertEquals(myContainer.size(), 1);
+    }
+    
+    @Test
+    public void testThatCantGetOutOfBoundIndices(){
+    	myContainer.add("Camel");
+    	myContainer.add("Giraffe");
+    	assertEquals(myContainer.get(-1), null);
+    	assertEquals(myContainer.get(5),null);
+    	}
+
 }

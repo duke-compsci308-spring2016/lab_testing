@@ -1,3 +1,4 @@
+
 package debug;
 
 
@@ -23,7 +24,12 @@ public class ContainerArray<E> {
     }
 
     public void remove (E objectToRemove) {
-        currentSize--;
+    	for(int i = 0; i < internalArray.length; i++){
+    		if(internalArray[i] == objectToRemove){
+    	        currentSize--;
+    	        internalArray[i] = null;
+    		}
+    	}
     }
 
     @SuppressWarnings("unchecked")

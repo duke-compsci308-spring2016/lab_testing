@@ -1,1 +1,3 @@
 Practice writing Unit Tests by choosing two classes from your VOOGASalad project to test.
+
+We chose to test our path following mechanism for sprites, as well as our manager that handles interactions and updating sprites. We chose these classes because they were modular enough to be tested without having to construct an entire game, but have complex enough functionality to construct interesting tests. 

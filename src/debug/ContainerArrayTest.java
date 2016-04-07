@@ -44,4 +44,43 @@ public class ContainerArrayTest {
         myContainer.remove("Bear");
         assertEquals("Remove should be same reference", alligator, myContainer.get(0));
     }
+    
+    //
+    @Test
+    public void testObjectIsRemoved2(){
+    	String dog = "Dog";
+    	myContainer.add(dog);
+    	String cat = "Cat";
+    	myContainer.add(cat);
+    	myContainer.remove(dog);
+    	assertEquals("Remove should be same reference", cat, myContainer.get(0));
+    }
+    
+    @Test
+    public void testAddPastCapacity(){
+    	myContainer.add("a");
+    	myContainer.add("b");
+    	myContainer.add("c");
+    	myContainer.add("d");
+    	myContainer.add("e");
+    	myContainer.add("f");
+    	myContainer.add("g");
+    	myContainer.add("h");
+    	myContainer.add("i");
+    	myContainer.add("j");
+    	myContainer.add("k");
+    	assertEquals(myContainer.size(), myContainer.get(10));
+
+    }
+    
+    @Test
+    public void testSizeChange(){
+    	String me = "Michelle";
+    	myContainer.add(me);
+    	myContainer.add("Michael");
+    	//myContainer.remove("Michelle");
+    	assertEquals("My size", 1, myContainer.size());
+    }
+    
+    //also the constructor size will always be 10--that's bad design
 }

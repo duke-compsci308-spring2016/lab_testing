@@ -1,8 +1,11 @@
 package debug;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ContainerArray<E> {
-    private int initialCapacity = 10;
+    private int limit = 10;
     private int currentSize = 0;
     private Object[] internalArray;
 
@@ -23,7 +26,10 @@ public class ContainerArray<E> {
     }
 
     public void remove (E objectToRemove) {
-        currentSize--;
+    	List list = new ArrayList(Arrays.asList(internalArray));
+    	list.remove(objectToRemove);
+    	internalArray = list.toArray();
+    	currentSize--;
     }
 
     @SuppressWarnings("unchecked")

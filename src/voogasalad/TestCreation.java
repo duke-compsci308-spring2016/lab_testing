@@ -10,6 +10,13 @@ import engine.Sprite;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+/**
+ * 
+ * @author Dhrumil and Jeremy
+ * 
+ * jes85 and drp18
+ *
+ */
 public class TestCreation {
 
     private CreationController<ISprite> myCreationController;

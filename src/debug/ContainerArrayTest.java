@@ -44,4 +44,24 @@ public class ContainerArrayTest {
         myContainer.remove("Bear");
         assertEquals("Remove should be same reference", alligator, myContainer.get(0));
     }
+    
+    @Test
+    public void testObjectIsRemovedCorrect() {
+        String alligator = "Alligator";
+        myContainer.add("Alligator");
+        myContainer.add("Bear");
+        myContainer.remove("Bear");
+        assertEquals("Remove should be same reference", null, myContainer.get(1));
+        
+    }
+    
+    @Test
+    public void testLimitsCorrect(){
+    	for(int i = 0; i < 11; i++){
+    		myContainer.add("test" + i);
+    	}
+    	assertEquals("List should have limits", 10, myContainer.size());
+    }
+    
+    
 }

@@ -15,7 +15,8 @@ public class ContainerArray<E> {
     }
 
     public void add (E element) {
-        internalArray[currentSize++] = element;
+        internalArray[currentSize] = element;
+        currentSize++;
     }
 
     public int size () {

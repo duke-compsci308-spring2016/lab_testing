@@ -1,6 +1,9 @@
 package debug;
 
 import static org.junit.Assert.*;
+
+import java.util.Arrays;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,21 +26,7 @@ public class ContainerArrayTest {
     
     @Test // 
     public void testStoreLimit () {
-    	 myContainer.add("Alligator");
-         myContainer.add("Bear");
-         myContainer.add("Camel");
-         assertEquals("Add size", 3, myContainer.size());
-         myContainer.add("4");
-         myContainer.add("5");
-         myContainer.add("6");
-         myContainer.add("7");
-         myContainer.add("8");
-         myContainer.add("9");
-         myContainer.add("10");
-         myContainer.add("11");
-         myContainer.add("12");
-         myContainer.add("13");
-         myContainer.add("14");
+    	 myContainer.addAll(Arrays.asList("aaaaaaaaaaaaaaaaaaaaaa".split("")));
          assertEquals("Add size", 10, myContainer.size());
     }
 

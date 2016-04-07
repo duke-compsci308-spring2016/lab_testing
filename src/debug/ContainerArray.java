@@ -1,5 +1,6 @@
 package debug;
 
+import java.util.List;
 
 public class ContainerArray<E> {
     private static final int LIMIT = 10;
@@ -17,6 +18,12 @@ public class ContainerArray<E> {
     public void add (E element) {			//1: handling array out of bounds; don't allow addition when full
     	if(currentSize < internalArray.length){
     		internalArray[currentSize++] = element;
+    	}
+    }
+    
+    public void addAll(List<E> toAdd){
+    	for(E e: toAdd){
+    		add(e);
     	}
     }
 

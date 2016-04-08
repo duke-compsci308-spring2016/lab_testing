@@ -44,4 +44,15 @@ public class ContainerArrayTest {
         myContainer.remove("Bear");
         assertEquals("Remove should be same reference", alligator, myContainer.get(0));
     }
+    @Test
+    public void testRemoveWorks(){
+    	String alligator = "Alligator";
+    	myContainer.add("Bear");
+    	myContainer.add(alligator);
+    	myContainer.remove("Bear");
+    	assertEquals("Check if the size is correct",1,myContainer.size());
+    	assertEquals("Check if Bear has been removed",alligator,myContainer.get(0));
+    	
+    }
+    
 }

@@ -2,7 +2,6 @@ package debug;
 
 
 public class ContainerArray<E> {
-    private int initialCapacity = 10;
     private int currentSize = 0;
     private Object[] internalArray;
 

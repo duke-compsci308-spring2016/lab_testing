@@ -44,4 +44,28 @@ public class ContainerArrayTest {
         myContainer.remove("Bear");
         assertEquals("Remove should be same reference", alligator, myContainer.get(0));
     }
+    
+    @Test
+    public void testObjectRemoved() {
+        String bear = "Bear";
+        myContainer.add("Alligator");
+        myContainer.add("Bear");
+        myContainer.remove("Alligator");
+        assertEquals("Remove should be same reference", bear, myContainer.get(0));
+    }
+    
+    @Test
+    public void testAddSize() {
+        myContainer = new ContainerArray<>(1);
+        myContainer.add("Alligator");
+        myContainer.add("Bear");
+        assertEquals(2, myContainer.size());
+    }
+    
+    @Test
+    public void testRemoveSize() {
+        myContainer.add("Alligator");
+        myContainer.remove("");
+        assertEquals("Empty string removal should not have any effect", 10, myContainer.size());
+    }
 }
